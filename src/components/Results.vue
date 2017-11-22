@@ -58,7 +58,7 @@ export default {
   data: () => ({
     title: 'Results',
     note: 'NOTE: Results are displayed with 0.0001 precision. Move your mouse over the table rows to see the full precision number.',
-    invalidText: 'Provide the patient age, height, gender and ethnicity.',
+    invalidText: 'Provide the patient age, height, gender, ethnicity and at least one measured value.',
   }),
 };
 </script>
