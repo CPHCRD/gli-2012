@@ -84,6 +84,9 @@ export default {
       },
       set(value) {
         const newValue = value === '' ? value : +value;
+        if (newValue < 3 || newValue > 95) {
+          return;
+        }
         setAttributeToRouteQuery('age', newValue, this.$router);
       },
     },
@@ -93,6 +96,9 @@ export default {
       },
       set(value) {
         const newValue = value === '' ? value : +value;
+        if (newValue < 50 || newValue > 250) {
+          return;
+        }
         setAttributeToRouteQuery('height', newValue, this.$router);
       },
     },
@@ -118,6 +124,9 @@ export default {
       },
       set(value) {
         const newValue = value === '' ? value : +value;
+        if (newValue < 0.2 || newValue > 9.0) {
+          return;
+        }
         setAttributeToRouteQuery('FEV1', newValue, this.$router);
       },
     },
@@ -127,6 +136,9 @@ export default {
       },
       set(value) {
         const newValue = value === '' ? value : +value;
+        if (newValue < 0.3 || newValue > 11) {
+          return;
+        }
         setAttributeToRouteQuery('FVC', newValue, this.$router);
       },
     },
@@ -136,6 +148,9 @@ export default {
       },
       set(value) {
         const newValue = value === '' ? value : +value;
+        if (newValue < 0.15 || newValue > 1) {
+          return;
+        }
         setAttributeToRouteQuery('FEV1FVC', newValue, this.$router);
       },
     },
