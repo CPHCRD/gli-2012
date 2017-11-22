@@ -33,7 +33,7 @@
         </select>
       </div>
     </div>
-    <div class="mdl-card__actions mdl-card--border">
+    <div class="mdl-card__supporting-text mdl-typography--text-left">
       <p class="mdl-typography--text-left">Measured values</p>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input v-model="FEV1" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.2" max="9.0">
