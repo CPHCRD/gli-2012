@@ -37,8 +37,8 @@
       <p class="mdl-typography--text-left">Measured values</p>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input v-model="FEV1" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.2" max="9.0">
-        <label class="mdl-textfield__label">FEV1</label>
-        <span class="mdl-textfield__error">Please specify a valid FEV1 measure in litres! (0.2 ~ 9.0)</span>
+        <label class="mdl-textfield__label">FEV₁</label>
+        <span class="mdl-textfield__error">Please specify a valid FEV₁ measure in litres! (0.2 ~ 9.0)</span>
       </div>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input v-model="FVC" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.3" max="11.0">
@@ -47,8 +47,8 @@
       </div>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input v-model="FEV1FVC" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.15" max="1.0">
-        <label class="mdl-textfield__label">FEV1/FVC</label>
-        <span class="mdl-textfield__error">Please specify a valid FEV1/FVC measure in litres! (0.15 ~ 1.0)</span>
+        <label class="mdl-textfield__label">FEV₁/FVC</label>
+        <span class="mdl-textfield__error">Please specify a valid FEV₁/FVC measure in litres! (0.15 ~ 1.0)</span>
       </div>
     </div>
   </div>
