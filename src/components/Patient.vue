@@ -10,9 +10,9 @@
         <span class="mdl-textfield__error">Please specify a valid age between 3.00 and 95.00 years!</span>
       </div>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input v-model="height" class="mdl-textfield__input" type="number" pattern="[0-9]*(\.[0-9]+)?" min="50" max="250">
+        <input v-model="height" class="mdl-textfield__input" type="number" step="0.01" pattern="[0-9]*(\.[0-9]+)?" min="50" max="250">
         <label class="mdl-textfield__label">Height (cm)</label>
-        <span class="mdl-textfield__error">Please specify a valid height in centimeters!</span>
+        <span class="mdl-textfield__error">Please specify a valid height between 50.00 and 250.00 centimeters!</span>
       </div>
       <div class="mdl-selectfield">
         <label class="mdl-textfield__label" htmlFor="gender">Gender</label>
@@ -217,5 +217,9 @@ hr {
   display: block;
   font-size: 12px;
   position: static;
+}
+.mdl-textfield.is-invalid .mdl-textfield__error {
+  background: rgba(255,255,255,0.6);
+  z-index: 1;
 }
 </style>
