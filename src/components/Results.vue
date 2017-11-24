@@ -15,8 +15,8 @@
                 <td>{{ vars.L.toFixed(4) }}</td>
               </tr>
               <tr v-bind:title="vars.M">
-                <td class="mdl-data-table__cell--non-numeric">M (predicted)</td>
-                <td>{{ vars.M.toFixed(4) }}</td>
+                <td class="mdl-data-table__cell--non-numeric"><strong>M (predicted)</strong></td>
+                <td><strong>{{ vars.M.toFixed(4) }}</strong></td>
               </tr>
               <tr v-bind:title="vars.S">
                 <td class="mdl-data-table__cell--non-numeric">S</td>
