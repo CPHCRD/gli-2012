@@ -75,7 +75,8 @@ export const calculateValues = (patient, measured, constants) => {
   };
 };
 
-export const calculateResults = (patient) => {
+export const calculateResults = (patientData) => {
+  const patient = Object.assign({}, patientData);
   const results = {
     FEV1: false,
     FVC: false,
@@ -87,6 +88,15 @@ export const calculateResults = (patient) => {
   if (!patient.age || !patient.height || !patient.gender || !patient.ethnicity) {
     return results;
   }
+  // calculate FEV1/FVC
+  const { FEV1 = '', FVC = '' } = patient;
+  if (FEV1 !== '' && FVC !== '') {
+    const FEV1FVC = FEV1 / FVC;
+    Object.assign(patient, {
+      FEV1FVC,
+    });
+  }
+  // calculate values for every results variable
   Object.keys(results).forEach((variable) => {
     const patientVariable = patient[variable] || '';
     if (patientVariable !== '') {

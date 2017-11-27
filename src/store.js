@@ -35,7 +35,6 @@ const state = {
       // measured values
       FEV1: '',
       FVC: '',
-      FEV1FVC: '',
     },
   },
 };

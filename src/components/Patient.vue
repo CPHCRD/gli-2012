@@ -45,11 +45,6 @@
         <label class="mdl-textfield__label">FVC</label>
         <span class="mdl-textfield__error">Please specify a valid FVC measure in litres! (0.3 ~ 11.0)</span>
       </div>
-      <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input v-model="FEV1FVC" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.15" max="1.0">
-        <label class="mdl-textfield__label">FEV₁/FVC</label>
-        <span class="mdl-textfield__error">Please specify a valid FEV₁/FVC measure in litres! (0.15 ~ 1.0)</span>
-      </div>
     </div>
   </div>
 </template>
@@ -124,7 +119,7 @@ export default {
       },
       set(value) {
         const newValue = value === '' ? value : +value;
-        if (newValue < 0.2 || newValue > 9.0) {
+        if (newValue !== '' && (newValue < 0.2 || newValue > 9.0)) {
           return;
         }
         setAttributeToRouteQuery('FEV1', newValue, this.$router);
@@ -136,22 +131,10 @@ export default {
       },
       set(value) {
         const newValue = value === '' ? value : +value;
-        if (newValue < 0.3 || newValue > 11) {
+        if (newValue !== '' && (newValue < 0.3 || newValue > 11)) {
           return;
         }
         setAttributeToRouteQuery('FVC', newValue, this.$router);
-      },
-    },
-    FEV1FVC: {
-      get() {
-        return this.$store.state.route.query.FEV1FVC || '';
-      },
-      set(value) {
-        const newValue = value === '' ? value : +value;
-        if (newValue < 0.15 || newValue > 1) {
-          return;
-        }
-        setAttributeToRouteQuery('FEV1FVC', newValue, this.$router);
       },
     },
   },
