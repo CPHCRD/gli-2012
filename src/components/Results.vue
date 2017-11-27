@@ -15,8 +15,8 @@
                 <td>{{ vars.L.toFixed(4) }}</td>
               </tr>
               <tr v-bind:title="vars.M">
-                <td class="mdl-data-table__cell--non-numeric"><strong>M (predicted)</strong></td>
-                <td><strong>{{ vars.M.toFixed(4) }}</strong></td>
+                <td class="mdl-data-table__cell--non-numeric">Predicted (M)</td>
+                <td>{{ vars.M.toFixed(4) }}</td>
               </tr>
               <tr v-bind:title="vars.S">
                 <td class="mdl-data-table__cell--non-numeric">S</td>
@@ -29,8 +29,8 @@
                 </td>
               </tr>
               <tr v-bind:title="vars.Zscore">
-                <td class="mdl-data-table__cell--non-numeric">Z-Score</td>
-                <td>{{ vars.Zscore.toFixed(4) }}</td>
+                <td class="mdl-data-table__cell--non-numeric"><strong>Z score</strong></td>
+                <td><strong>{{ vars.Zscore.toFixed(4) }}</strong></td>
               </tr>
               <tr v-bind:title="vars.percPredicted">
                 <td class="mdl-data-table__cell--non-numeric"><strong>% predicted</strong></td>
