@@ -45,6 +45,10 @@
         <label class="mdl-textfield__label">FVC</label>
         <span class="mdl-textfield__error">Please specify a valid FVC measure in litres! (0.3 ~ 11.0)</span>
       </div>
+      <div v-mdl v-if="FEV1FVC !== ''" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input disabled v-model="FEV1FVC" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.3" max="11.0">
+        <label class="mdl-textfield__label">FEV₁/FVC</label>
+      </div>
     </div>
   </div>
 </template>
@@ -137,6 +141,18 @@ export default {
         setAttributeToRouteQuery('FVC', newValue, this.$router);
       },
     },
+    FEV1FVC: {
+      get() {
+        const { FEV1, FVC } = this.$store.state.route.query;
+        if (FEV1 === '' || FVC === '') {
+          return '';
+        }
+        return (FEV1 / FVC).toFixed(4);
+      },
+      set(value) {
+        return value;
+      },
+    },
   },
   data: () => ({
     title: 'Patient Information',
@@ -204,5 +220,11 @@ hr {
 .mdl-textfield.is-invalid .mdl-textfield__error {
   background: rgba(255,255,255,0.6);
   z-index: 1;
+}
+.fieldset[disabled] .mdl-textfield .mdl-textfield__label,
+.mdl-textfield.is-disabled.is-disabled .mdl-textfield__label,
+.fieldset[disabled] .mdl-textfield .mdl-textfield__input,
+.mdl-textfield.is-disabled .mdl-textfield__input {
+  color: rgba(96,125,139,0.7);
 }
 </style>
