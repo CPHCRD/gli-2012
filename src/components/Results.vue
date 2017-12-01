@@ -6,8 +6,8 @@
     <hr/>
     <div class="mdl-card__supporting-text mdl-typography--text-left">
       <div v-if="valid">
-        <div v-if="vars" class="result-box-results" v-for="vars,name in results">
-          <h5 class="mdl-color-text--accent">{{ name }}</h5>
+        <div v-if="vars" class="result-box-results" v-for="vars,varName in results">
+          <h5 class="mdl-color-text--accent">{{ varNames[varName] }}</h5>
           <table class="mdl-data-table mdl-shadow--2dp">
             <tbody>
               <tr v-bind:title="vars.L">
@@ -40,6 +40,7 @@
           </table>
         </div>
         <p><i>{{ note }}</i></p>
+        <chart :results="results" />
       </div>
       <p v-else>{{ invalidText }}</p>
     </div>
@@ -48,9 +49,13 @@
 
 <script>
 import { mapState } from 'vuex';
+import Chart from './Chart';
 
 export default {
   name: 'Results',
+  components: {
+    Chart,
+  },
   computed: mapState({
     valid: state => state.valid,
     results: state => state.results,
@@ -59,6 +64,11 @@ export default {
     title: 'Results',
     note: 'NOTE: Results are displayed with 0.0001 precision. Move your mouse over the table rows to see the full precision number.',
     invalidText: 'Provide the patient age, height, gender, ethnicity and at least one measured value.',
+    varNames: {
+      FEV1: 'FEV₁',
+      FVC: 'FVC',
+      FEV1FVC: 'FEV₁/FVC',
+    },
   }),
 };
 </script>
