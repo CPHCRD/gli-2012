@@ -69,14 +69,6 @@ export default {
       default: () => {},
     },
   },
-  mounted() {
-    this.initialize();
-    // window.addEventListener('resize', this.onResize);
-    // this.onResize();
-  },
-  // beforeDestroy() {
-  //   window.removeEventListener('resize', this.onResize);
-  // },
   methods: {
     calculateOffset(size) {
       const { viewSize } = this;
