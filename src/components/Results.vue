@@ -10,15 +10,15 @@
           <h5 class="mdl-color-text--accent">{{ varNames[varName] }}</h5>
           <table class="mdl-data-table mdl-shadow--2dp">
             <tbody>
-              <tr v-bind:title="vars.L">
+              <tr v-if="debug" v-bind:title="vars.L">
                 <td class="mdl-data-table__cell--non-numeric">L</td>
                 <td>{{ vars.L.toFixed(4) }}</td>
               </tr>
               <tr v-bind:title="vars.M">
-                <td class="mdl-data-table__cell--non-numeric">Predicted (M)</td>
+                <td class="mdl-data-table__cell--non-numeric">Predicted<span v-if="debug"> (M)</span></td>
                 <td>{{ vars.M.toFixed(4) }}</td>
               </tr>
-              <tr v-bind:title="vars.S">
+              <tr v-if="debug" v-bind:title="vars.S">
                 <td class="mdl-data-table__cell--non-numeric">S</td>
                 <td>{{ vars.S.toFixed(4) }}</td>
               </tr>
@@ -59,6 +59,7 @@ export default {
   computed: mapState({
     valid: state => state.valid,
     results: state => state.results,
+    debug: state => state.debug,
   }),
   data: () => ({
     title: 'Results',

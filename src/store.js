@@ -51,6 +51,7 @@ const mutations = {
     Object.assign(currentState, {
       valid: false,
       results: calculateResults(patient),
+      debug: patient.debug,
     });
     // validate results
     Object.keys(currentState.results).forEach((variable) => {
