@@ -45,7 +45,7 @@
         <label class="mdl-textfield__label">FVC</label>
         <span class="mdl-textfield__error">Please specify a valid FVC measure in litres! (0.3 ~ 11.0)</span>
       </div>
-      <div v-mdl v-if="FEV1FVC !== ''" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <div v-if="FEV1FVC !== ''" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty">
         <input disabled v-model="FEV1FVC" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.3" max="11.0">
         <label class="mdl-textfield__label">FEV₁/FVC</label>
       </div>
