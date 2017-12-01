@@ -45,8 +45,8 @@ export default {
       text: 'Calculator',
       href: '#/',
     }, {
-      text: 'About us',
-      href: '#/about-us',
+      text: 'About',
+      href: '#/about',
     }, {
       text: 'Github',
       href: 'https://github.com/CPHCRD/gli-2012',
