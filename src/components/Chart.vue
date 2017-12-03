@@ -113,12 +113,12 @@ export default {
         x: viewMargin,
         width: viewMargin * 2,
         z: -viewSize + viewMargin,
-        label: -viewSize + viewMargin,
+        label: '',
       }, {
         x: viewMargin + viewMargin * 2,
         width: viewMargin * 2,
         z: -viewSize + viewMargin + viewMargin * 2,
-        label: -viewSize + viewMargin + viewMargin * 2,
+        label: '',
       }, {
         x: viewMargin + viewMargin * 4,
         width: viewMargin * 2,
@@ -128,12 +128,12 @@ export default {
         x: viewMargin + viewMargin * 6,
         width: viewMargin * 2,
         z: -viewSize + viewMargin + viewMargin * 6,
-        label: -viewSize + viewMargin + viewMargin * 6,
+        label: '',
       }, {
         x: viewMargin + viewMargin * 8,
         width: viewMargin,
         z: -viewSize + viewMargin + viewMargin * 8,
-        label: -viewSize + viewMargin + viewMargin * 8,
+        label: '',
       }];
     },
     graphNormalIntervals() {
