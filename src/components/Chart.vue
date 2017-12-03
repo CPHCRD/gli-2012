@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="mdl-card__title">
-      <h3 class="mdl-card__title-text">{{ title }}</h3>
-    </div>
     <div class="graph-container mdl-color--primary">
       <div>
         <div class="graph-section mdl-color--primary" v-for="interval in graphIntervals" v-bind:style="{
@@ -154,7 +151,6 @@ export default {
     },
   },
   data: () => ({
-    title: 'Normal distribution',
     size: 4,
     normalSize: 1.64,
     limitSize: 1.96,
@@ -172,7 +168,7 @@ export default {
     position: relative;
     width: 90%;
     height: 3rem;
-    margin: 2rem auto 4rem;
+    margin: 4rem auto;
     border: 1px solid rgba(0, 0, 0, .54);
   }
   .graph-container::after {
