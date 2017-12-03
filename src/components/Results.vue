@@ -39,7 +39,7 @@
             </tbody>
           </table>
         </div>
-        <p><i>{{ note }}</i></p>
+        <br clear="both"/>
         <chart :results="results" />
       </div>
       <p v-else>{{ invalidText }}</p>
@@ -63,7 +63,6 @@ export default {
   }),
   data: () => ({
     title: 'Results',
-    note: 'NOTE: Results are displayed with 0.0001 precision. Move your mouse over the table rows to see the full precision number.',
     invalidText: 'Provide the patient age, height, gender, ethnicity and at least one measured value.',
     varNames: {
       FEV1: 'FEV₁',
