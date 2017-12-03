@@ -198,25 +198,25 @@ export default {
   }
   .graph-section-label {
     position: absolute;
-    left: -1rem;
-    bottom: -1.5rem;
-    font-size: 0.8rem;
+    left: -1.3rem;
+    bottom: -1.3rem;
+    font-size: 0.7rem;
     width: 2rem;
     text-align: center;
   }
-  .graph-section--area .graph-section-label {
-    font-weight: 600;
-    left: -1rem;
-  }
-  .graph-section--area + .graph-section--area .graph-section-label {
-    right: -1rem;
-    left: auto;
-  }
   .graph-section-label--level-one {
-    bottom: -2.5rem;
+    left: -1.5rem;
   }
   .graph-section-label--level-two {
-    bottom: -3.5rem;
+    left: -0.5rem;
+  }
+  .graph-section--area + .graph-section--area .graph-section-label--level-one {
+    left: auto;
+    right: -1.4rem;
+  }
+  .graph-section--area + .graph-section--area .graph-section-label--level-two {
+    left: auto;
+    right: -0.6rem;
   }
   .graph-result-bar {
     position: absolute;
