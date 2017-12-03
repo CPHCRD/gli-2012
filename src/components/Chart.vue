@@ -44,7 +44,6 @@
           left: `${(calculateResultOffset(result.Zscore) * 10)}%`,
         }"
       >
-        <div class="graph-result-arrow">&#9660;</div>
         <div class="graph-result-label">{{ varNames[varName] }}</div>
       </div>
     </div>
