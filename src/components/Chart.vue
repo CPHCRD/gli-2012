@@ -47,12 +47,6 @@
         <div class="graph-result-label">{{ varNames[varName] }}</div>
       </div>
     </div>
-    <span class="graph-legend-box mdl-color--primary"></span>
-    <span class="graph-legend-label">99.9% percentile</span>
-    <span class="graph-legend-box mdl-color--primary graph-legend-box--level-one"></span>
-    <span class="graph-legend-label">98% percentile</span>
-    <span class="graph-legend-box mdl-color--primary graph-legend-box--level-one graph-legend-box--level-two"></span>
-    <span class="graph-legend-label">95% percentile</span>
   </div>
 </template>
 
@@ -233,14 +227,6 @@ export default {
     bottom: 0;
     transition: 1s;
   }
-  .graph-result-arrow {
-    display: block;
-    color: black;
-    position: absolute;
-    top: -1.1rem;
-    left: -0.45rem;
-    font-size: 1rem;
-  }
   .graph-result-label {
     display: block;
     color: black;
@@ -250,30 +236,5 @@ export default {
     text-align: center;
     top: -1.7rem;
     left: -2rem;
-  }
-  .graph-legend-box {
-    position: relative;
-    display: block;
-    float: left;
-    border: 1px solid black;
-    width: 1rem;
-    height: 1rem;
-    margin: 0.5rem;
-  }
-  .graph-legend-box--level-one::before,
-  .graph-legend-box--level-two::after {
-    content: "";
-    display: block;
-    background: rgba(255, 255, 255, .54);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  .graph-legend-label {
-    display: block;
-    float: left;
-    margin: 0.5rem 0.5rem 0.5rem 0.2rem;
   }
 </style>
