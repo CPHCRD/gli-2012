@@ -8,6 +8,7 @@ import store from './store';
 
 sync(store, router);
 
+// Vue configuration
 Vue.config.productionTip = false;
 
 // Material Design Lite directive
