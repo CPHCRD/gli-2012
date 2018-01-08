@@ -28,12 +28,18 @@
         <router-view/>
       </div>
     </main>
+    <disclaimer />
   </div>
 </template>
 
 <script>
+import Disclaimer from './components/Disclaimer';
+
 export default {
   name: 'app',
+  components: {
+    Disclaimer,
+  },
   methods: {
     closeDrawer() {
       document.querySelector('.mdl-layout').MaterialLayout.toggleDrawer();
