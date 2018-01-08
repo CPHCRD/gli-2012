@@ -11,7 +11,7 @@
       </div>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input v-model="height" class="mdl-textfield__input" type="number" step="0.01" pattern="[0-9]*(\.[0-9]+)?" min="50" max="250">
-        <label class="mdl-textfield__label">Height (cm)</label>
+        <label class="mdl-textfield__label">Height (cm with decimals)</label>
         <span class="mdl-textfield__error">Please specify a valid height between 50.00 and 250.00 centimeters!</span>
       </div>
       <div class="mdl-selectfield">
@@ -37,17 +37,17 @@
       <p class="mdl-typography--text-left">Measured values</p>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input v-model="FEV1" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.2" max="9.0">
-        <label class="mdl-textfield__label">FEV₁</label>
+        <label class="mdl-textfield__label">FEV₁ (L)</label>
         <span class="mdl-textfield__error">Please specify a valid FEV₁ measure in litres! (0.2 ~ 9.0)</span>
       </div>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input v-model="FVC" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.3" max="11.0">
-        <label class="mdl-textfield__label">FVC</label>
+        <label class="mdl-textfield__label">FVC (L)</label>
         <span class="mdl-textfield__error">Please specify a valid FVC measure in litres! (0.3 ~ 11.0)</span>
       </div>
       <div v-if="FEV1FVC !== ''" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty">
         <input disabled v-model="FEV1FVC" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.3" max="11.0">
-        <label class="mdl-textfield__label">FEV₁/FVC</label>
+        <label class="mdl-textfield__label">FEV₁/FVC (L)</label>
       </div>
     </div>
   </div>
