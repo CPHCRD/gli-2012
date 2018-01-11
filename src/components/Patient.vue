@@ -4,10 +4,16 @@
       <h2 class="mdl-card__title-text">{{ title }}</h2>
     </div>
     <div class="mdl-card__supporting-text mdl-typography--text-left">
-      <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input v-model="age" class="mdl-textfield__input" type="number" step="0.01" pattern="[0-9]+(\.[0-9]{1,2})?" min="3" max="95">
-        <label class="mdl-textfield__label">Age (3-95 years with decimals)</label>
-        <span class="mdl-textfield__error">Please specify a valid age between 3.00 and 95.00 years!</span>
+      <div style="margin-bottom: 1rem">
+        <div v-mdl id="ageInput" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input v-model="age" class="mdl-textfield__input" type="number" step="0.01" pattern="[0-9]+(\.[0-9]{1,2})?" min="3" max="95">
+          <label class="mdl-textfield__label">Age (3-95 years with decimals)</label>
+          <span class="mdl-textfield__error">Please specify a valid age between 3.00 and 95.00 years!</span>
+        </div>
+        <div v-mdl class="mdl-textfield mdl-textfield--compact mdl-js-textfield mdl-textfield--dirty mdl-textfield--floating-label is-dirty">
+          <input v-model="birthDate" class="mdl-textfield__input" type="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+          <label class="mdl-textfield__label">calculate age from birth date</label>
+        </div>
       </div>
       <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input v-model="height" class="mdl-textfield__input" type="number" step="0.01" pattern="[0-9]*(\.[0-9]+)?" min="50" max="250">
@@ -54,14 +60,30 @@
 </template>
 
 <script>
+import moment from 'moment';
 // generate the query object and call the router
-const setAttributeToRouteQuery = (attribute, value, $router = {}) => {
+const pushQueryToRouter = (query, $router = {}) => {
+  $router.push({ query });
+};
+const setAttributeToRouteQuery = (attribute, value, $router) => {
   const { currentRoute = {} } = $router;
   const { query: currentQuery = {} } = currentRoute;
   const query = Object.assign({}, currentQuery, {
     [attribute]: value,
   });
-  $router.push({ query });
+  pushQueryToRouter(query, $router);
+};
+const setAttributesToRouteQuery = (attributes, $router) => {
+  const { currentRoute = {} } = $router;
+  const { query: currentQuery = {} } = currentRoute;
+  const query = Object.assign({}, currentQuery);
+  attributes.forEach((attributeValue) => {
+    const [attribute, value] = attributeValue;
+    Object.assign(query, {
+      [attribute]: value,
+    });
+  });
+  pushQueryToRouter(query, $router);
 };
 
 export default {
@@ -83,10 +105,32 @@ export default {
       },
       set(value) {
         const newValue = value === '' ? value : +value;
-        if (newValue < 3 || newValue > 95) {
-          return;
+        setAttributesToRouteQuery([
+          ['birthDate', ''],
+          ['age', newValue],
+        ], this.$router);
+      },
+    },
+    birthDate: {
+      get() {
+        return this.$store.state.route.query.birthDate || '';
+      },
+      set(value) {
+        document.getElementById('ageInput').classList.remove('is-invalid');
+        const birthDate = new Date(value);
+        const currentDate = new Date();
+        let age = moment.duration(currentDate - birthDate).years();
+        if (age < 3) {
+          age = 3;
         }
-        setAttributeToRouteQuery('age', newValue, this.$router);
+        if (age > 95) {
+          age = 95;
+        }
+        setAttributesToRouteQuery([
+          ['birthDate', value],
+          ['age', age],
+        ], this.$router);
+        document.getElementById('ageInput').classList.add('is-dirty');
       },
     },
     height: {
@@ -219,12 +263,28 @@ hr {
 }
 .mdl-textfield.is-invalid .mdl-textfield__error {
   background: rgba(255,255,255,0.6);
-  z-index: 1;
+  z-index: 2;
 }
 .fieldset[disabled] .mdl-textfield .mdl-textfield__label,
 .mdl-textfield.is-disabled.is-disabled .mdl-textfield__label,
 .fieldset[disabled] .mdl-textfield .mdl-textfield__input,
 .mdl-textfield.is-disabled .mdl-textfield__input {
   color: rgba(96,125,139,0.7);
+}
+.mdl-textfield--dirty .mdl-textfield__label {
+    color: rgb(96,125,139);
+    font-size: 12px;
+    top: 4px;
+    visibility: visible;
+}
+.mdl-textfield--compact {
+  margin-top: -1rem;
+  padding-bottom: 0;
+}
+.mdl-textfield--compact .mdl-textfield__label,
+.mdl-textfield--compact .mdl-textfield__input {
+  color: gray;
+  opacity: 0.9;
+  font-size: 75%;
 }
 </style>
