@@ -113,7 +113,7 @@ export default {
         x: viewMargin,
         width: viewMargin * 2,
         z: -viewSize + viewMargin,
-        label: '',
+        label: -viewSize + viewMargin,
       }, {
         x: viewMargin + viewMargin * 2,
         width: viewMargin * 2,
@@ -133,7 +133,7 @@ export default {
         x: viewMargin + viewMargin * 8,
         width: viewMargin,
         z: -viewSize + viewMargin + viewMargin * 8,
-        label: '',
+        label: -viewSize + viewMargin + viewMargin * 8,
       }];
     },
     graphNormalIntervals() {
@@ -162,7 +162,7 @@ export default {
     width: 90%;
     height: 3rem;
     margin: 4rem auto;
-    border: 1px solid rgba(0, 0, 0, .54);
+    border: 1px solid #333;
   }
   .graph-container::after {
     content: "";
@@ -171,10 +171,13 @@ export default {
     clear: both;
   }
   .graph-section {
-    background: rgba(255, 255, 255, .54);
+    background: rgba(76, 175, 80, .50);
     position: absolute;
     top: 0;
     bottom: 0;
+  }
+  .graph-section.mdl-color--primary {
+    background: #f44336 !important;
   }
   /*.graph-section::before,
   .graph-section + .graph-section::after {
@@ -220,12 +223,14 @@ export default {
   }
   .graph-result-bar {
     position: absolute;
-    background: black;
-    width: 1px;
-    height: 100%;
-    top: 0;
-    bottom: 0;
+    background: white;
+    border: 1px solid black;
+    margin-left: -1px;
+    width: 3px;
+    top: -4px;
+    bottom: -4px;
     transition: 1s;
+    box-shadow: -1px -1px 0px rgba(0, 0, 0, 0.25);
   }
   .graph-result-label {
     display: block;
