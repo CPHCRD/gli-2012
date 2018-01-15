@@ -3,8 +3,9 @@
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">{{ title }}</h2>
       <div class="loading-box">
+        <save-to-pdf class="loading-box-pdf" />
         <i class="loading-box-refresh material-icons">refresh</i>
-        <i class="loading-box-success material-icons">check_circle</i>
+        <i class="loading-box-success material-icons" v-on:click="refresh"><span class="normal">check_circle</span><span class="hover">refresh</span></i>
       </div>
     </div>
     <hr/>
@@ -55,19 +56,21 @@
 <script>
 import { mapState } from 'vuex';
 import Chart from './Chart';
+import SaveToPdf from './SaveToPdf';
 
 export default {
   name: 'Results',
   components: {
     Chart,
+    SaveToPdf,
   },
   computed: mapState({
     valid: state => state.valid,
     results: state => state.results,
     debug: state => state.debug,
   }),
-  watch: {
-    results: function results() {
+  methods: {
+    refresh: function refresh() {
       const { valid } = this;
       if (valid === true) {
         document.querySelector('.loading-box').classList.add('loading-box--valid');
@@ -78,6 +81,11 @@ export default {
       } else {
         document.querySelector('.loading-box').classList.remove('loading-box--valid');
       }
+    },
+  },
+  watch: {
+    results: function results() {
+      this.refresh();
     },
   },
   data: () => ({
@@ -121,17 +129,30 @@ h3 {
 	-webkit-animation: rotation 0.5s infinite linear;
 }
 .loading-box .loading-box-success,
+.loading-box .loading-box-pdf,
 .loading-box .loading-box-refresh {
   display: none;
 }
-.loading-box.loading-box--valid .loading-box-success {
+.loading-box .loading-box-success .hover {
+  display: none;
+}
+.loading-box .loading-box-success:hover .normal {
+  display: none;
+}
+.loading-box .loading-box-success:hover .hover {
   display: block;
 }
-.loading-box.loading-box--valid.loading-box--active .loading-box-success {
+.loading-box.loading-box--valid .loading-box-success,
+.loading-box.loading-box--valid .loading-box-pdf {
+  display: inline-block;
+  cursor: pointer;
+}
+.loading-box.loading-box--valid.loading-box--active .loading-box-success,
+.loading-box.loading-box--valid.loading-box--active .loading-box-pdf {
   display: none;
 }
 .loading-box.loading-box--active .loading-box-refresh {
-  display: block;
+  display: inline-block;
 }
 @-keyframes rotation {
 	from {

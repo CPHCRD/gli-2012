@@ -10,7 +10,7 @@
           <label class="mdl-textfield__label">Age (3-95 years with decimals)</label>
           <span class="mdl-textfield__error">Please specify a valid age between 3.00 and 95.00 years!</span>
         </div>
-        <div v-mdl class="mdl-textfield mdl-textfield--compact mdl-js-textfield mdl-textfield--dirty mdl-textfield--floating-label is-dirty">
+        <div v-mdl class="mdl-textfield mdl-textfield--compact mdl-textfield--dirty mdl-textfield--floating-label is-dirty">
           <input v-model="birthDate" class="mdl-textfield__input" type="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
           <label class="mdl-textfield__label">calculate age from birth date</label>
         </div>
@@ -54,6 +54,17 @@
       <div v-show="FEV1FVC !== ''" class="mdl-textfield mdl-textfield--floating-label is-upgraded is-dirty" style="display: none;">
         <input disabled v-model="FEV1FVC" class="mdl-textfield__input" type="number" step="0.0001" pattern="-?[0-9]*(\.[0-9]+)?" min="0.3" max="11.0" style="color: #9e9e9e;">
         <label class="mdl-textfield__label" style="color: #9e9e9e;">FEV₁/FVC (L)</label>
+      </div>
+    </div>
+    <div class="mdl-card__supporting-text mdl-typography--text-left">
+      <p class="mdl-typography--text-left">Optional information</p>
+      <div v-mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input v-model="name" class="mdl-textfield__input" type="text">
+        <label class="mdl-textfield__label">Patient name</label>
+      </div>
+        <div v-mdl class="mdl-textfield mdl-textfield--compact mdl-textfield--dirty mdl-textfield--floating-label is-dirty">
+        <input v-model="date" class="mdl-textfield__input" type="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        <label class="mdl-textfield__label">Report date</label>
       </div>
     </div>
   </div>
@@ -195,6 +206,22 @@ export default {
       },
       set(value) {
         return value;
+      },
+    },
+    name: {
+      get() {
+        return this.$store.state.route.query.name || '';
+      },
+      set(value) {
+        setAttributeToRouteQuery('name', value, this.$router);
+      },
+    },
+    date: {
+      get() {
+        return this.$store.state.route.query.date || '';
+      },
+      set(value) {
+        setAttributeToRouteQuery('date', value, this.$router);
       },
     },
   },
