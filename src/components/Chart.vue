@@ -38,13 +38,25 @@
       </div>
       <div
         class="graph-result-bar"
-        v-bind:title="result.Zscore"
         v-for="result,varName in results"
+        v-bind:class="'graph-result-bar--' + varName"
+        v-bind:title="result.Zscore"
         v-bind:style="{
           left: `${(calculateResultOffset(result.Zscore) * 10)}%`,
         }"
+        v-if="result !== false"
       >
         <div class="graph-result-label">{{ varNames[varName] }}</div>
+      </div>
+    </div>
+    <div class="graph-legend">
+      <div
+        class="graph-legend-item"
+        v-for="result,varName in results"
+        v-if="result !== false"
+      >
+        <div class="graph-legend-bar" v-bind:class="'graph-legend-bar--' + varName"></div>
+        <div class="graph-legend-label">{{ varNames[varName] }}</div>
       </div>
     </div>
   </div>
@@ -171,14 +183,14 @@ export default {
     clear: both;
   }
   .graph-section {
-    background: rgba(76, 175, 80, .50);
+    background: rgba(255, 255, 255, .54);
     position: absolute;
     top: 0;
     bottom: 0;
   }
-  .graph-section.mdl-color--primary {
+  /*.graph-section.mdl-color--primary {
     background: #f44336 !important;
-  }
+  }*/
   /*.graph-section::before,
   .graph-section + .graph-section::after {
     display: block;
@@ -232,8 +244,20 @@ export default {
     transition: 1s;
     box-shadow: -1px -1px 0px rgba(0, 0, 0, 0.25);
   }
+  .graph-result-bar--FEV1,
+  .graph-legend-bar--FEV1 {
+    background-color: rgba(29, 151, 135, 0.75);
+  }
+  .graph-result-bar--FVC,
+  .graph-legend-bar--FVC {
+    background-color: rgba(253, 195, 0, 0.75);
+  }
+  .graph-result-bar--FEV1FVC,
+  .graph-legend-bar--FEV1FVC {
+    background-color: rgba(102, 52, 186, 0.75);
+  }
   .graph-result-label {
-    display: block;
+    display: none;
     color: black;
     position: absolute;
     font-size: 0.8rem;
@@ -241,5 +265,19 @@ export default {
     text-align: center;
     top: -1.7rem;
     left: -2rem;
+  }
+  .graph-legend-item {
+    margin-bottom: 0.25rem;
+  }
+  .graph-legend-label {
+    display: inline-block;
+    font-size: 0.8rem;
+  }
+  .graph-legend-bar {
+    display: inline-block;
+    border: 1px solid black;
+    width: 3rem;
+    height: 4px;
+    box-shadow: -1px -1px 0px rgba(0, 0, 0, 0.25);
   }
 </style>
