@@ -25,7 +25,7 @@ export default {
     });
     setTimeout(() => {
       dialog.showModal();
-    }, 500);
+    }, 1000);
   },
 };
 </script>
