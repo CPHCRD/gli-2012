@@ -246,15 +246,15 @@ export default {
   }
   .graph-result-bar--FEV1,
   .graph-legend-bar--FEV1 {
-    background-color: rgba(29, 151, 135, 0.75);
+    background-color: rgba(33, 150, 243, 0.75)
   }
   .graph-result-bar--FVC,
   .graph-legend-bar--FVC {
-    background-color: rgba(253, 195, 0, 0.75);
+    background-color: rgba(156, 39, 176, 0.75);
   }
   .graph-result-bar--FEV1FVC,
   .graph-legend-bar--FEV1FVC {
-    background-color: rgba(102, 52, 186, 0.75);
+    background-color: rgba(63, 81, 181, 0.75);
   }
   .graph-result-label {
     display: none;
