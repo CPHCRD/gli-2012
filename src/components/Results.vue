@@ -13,7 +13,7 @@
       <div v-if="valid">
         <p>These results are re-calculated automatically when you update the patient information.</p>
         <div v-if="vars" class="result-box-results" v-for="vars,varName in results">
-          <h5 v-bind:class="'mdl-color-text--'+varName">{{ varNames[varName] }}</h5>
+          <h5 class="mdl-color-text--accent">{{ varNames[varName] }}</h5>
           <table class="mdl-data-table mdl-shadow--2dp">
             <tbody>
               <tr v-if="debug" v-bind:title="vars.L">
@@ -123,15 +123,6 @@ h3 {
 }
 .loading-box {
   color: rgb(96,125,139);
-}
-.mdl-color-text--FEV1 {
-  color: rgb(33, 150, 243);
-}
-.mdl-color-text--FVC {
-  color: rgb(156, 39, 176);
-}
-.mdl-color-text--FEV1FVC {
-  color: rgb(63, 81, 181);
 }
 .loading-box-refresh {
 	animation: rotation 0.5s infinite linear;
