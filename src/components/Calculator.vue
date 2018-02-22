@@ -4,9 +4,6 @@
       <patient />
       <results />
     </div>
-    <a class="logo" href="http://www.ers-education.org/guidelines/global-lung-function-initiative.aspx" target="_blank">
-      <img src="../assets/gli-logo.jpg" />
-    </a>
   </div>
 </template>
 
@@ -59,16 +56,6 @@ a {
   width: 60%;
 }
 
-.logo {
-  margin: -5rem 2rem 2rem auto;
-  float: right;
-  height: 5rem;
-}
-
-.logo img {
-  height: 100%;
-}
-
 @media only screen and (max-width: 767px) {
   .calculator-container .patient-box,
   .calculator-container .result-box {
@@ -76,9 +63,6 @@ a {
     max-width: 330px;
     width: 90%;
     margin: 20px auto 40px;
-  }
-  .logo {
-    margin-top: 0;
   }
 }
 </style>
