@@ -5,7 +5,7 @@
       <div class="mdl-layout__header-row">
         <!-- Title -->
         <span class="mdl-layout-title">
-          <img class="logo" src="./assets/gli-logo.jpg" />
+          <img class="logo" alt="gli logo" src="./assets/gli-logo.jpg" />
           <b>{{ title }}</b>
         </span>
         <!-- Add spacer, to align navigation to the right -->
