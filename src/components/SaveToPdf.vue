@@ -9,6 +9,8 @@ import moment from 'moment';
 import { mapState } from 'vuex';
 import JsPDF from 'jspdf';
 
+import gliLogoData from '../assets/gli-logo';
+
 export default {
   name: 'chart',
   computed: mapState({
@@ -27,6 +29,8 @@ export default {
       const patientName = el.data.name || 'Patient';
       const reportDate = el.data.date || moment().format('YYYY-MM-DD');
       const doc = new JsPDF();
+      // You'll need to make your image into a Data URL
+      doc.addImage(gliLogoData, 'JPEG', 155, 10, 40, 18);
       let firstBlockYOffset = 30;
       doc.setFontSize(titleFont);
       doc.text(leftMargin, firstBlockYOffset, patientName);
