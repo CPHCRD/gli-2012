@@ -77,15 +77,16 @@ export default {
 
   .logo {
     float: left;
-    height: 46px;
+    height: 64px;
+    box-sizing: border-box;
     padding: 4px;
-    background: white;
+    background: #fff;
     display: block;
   }
   
   .logo + b {
     font-weight: normal;
-    margin: 17px;
+    margin: 21px 0 0 21px;
     display: inline-block;
   }
 </style>
