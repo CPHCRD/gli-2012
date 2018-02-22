@@ -3,8 +3,9 @@
     <h1 class="mdl-typography--display-3">gli-2012</h1>
     <p class="mdl-color-text--primary mdl-typography--title">calculator</p>
     <div class="about-content">
-      <p>made by <a title="Copenhagen Clinical Research Development" href="https://CPHCRD.github.io" target="_blank">CPHCRD</a></p>
-      <br/><br/>
+      <p>Application made by <a title="Copenhagen Clinical Research Development" href="https://CPHCRD.github.io" target="_blank">CPHCRD</a></p>
+      <a title="Copenhagen Clinical Research Development" href="https://CPHCRD.github.io" target="_blank"><img alt="cphcrd logo" height="173.5px" src="../assets/cphcrd-logo.png" /></a>
+      <br/><br/><br/><br/>
       <p class="mdl-typography--display-1">Essential Links</p>
       <ul>
         <li><a href="http://gligastransfer.org.au/calcs/index.html" title="Global Lung Function Initiative" target="_blank">GLI homepage</a></li>
