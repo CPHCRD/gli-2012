@@ -89,4 +89,14 @@ export default {
     margin: 21px 0 0 21px;
     display: inline-block;
   }
+
+  @media only screen and (max-width: 767px) {
+    .logo {
+      height: 56px;
+    }
+    
+    .logo + b {
+      margin: 18px 0 0 18px;
+    }
+  }
 </style>
