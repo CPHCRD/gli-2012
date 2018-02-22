@@ -78,6 +78,7 @@ export default {
   .logo {
     float: left;
     height: 64px;
+    max-height: 64px;
     box-sizing: border-box;
     padding: 4px;
     background: #fff;
@@ -90,9 +91,10 @@ export default {
     display: inline-block;
   }
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 1024px) {
     .logo {
       height: 56px;
+      max-height: 56px;
     }
     
     .logo + b {
