@@ -4,7 +4,10 @@
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
         <!-- Title -->
-        <span class="mdl-layout-title">{{ title }}</span>
+        <span class="mdl-layout-title">
+          <img class="logo" src="./assets/gli-logo.jpg" />
+          <b>{{ title }}</b>
+        </span>
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation. We hide it in small screens. -->
@@ -16,7 +19,9 @@
       </div>
     </header>
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">{{ title }}</span>
+      <span class="mdl-layout-title">
+        {{ title }}
+      </span>
       <nav class="mdl-navigation">
         <a v-on:click="closeDrawer" class="mdl-navigation__link" v-for="option in pages" v-bind:href="option.href">
           {{ option.text }}
@@ -68,5 +73,19 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+  }
+
+  .logo {
+    float: left;
+    height: 46px;
+    padding: 4px;
+    background: white;
+    display: block;
+  }
+  
+  .logo + b {
+    font-weight: normal;
+    margin: 17px;
+    display: inline-block;
   }
 </style>
