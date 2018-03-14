@@ -13,25 +13,37 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
+let dialog;
+
 export default {
   name: 'disclaimer',
+  computed: mapState(['ready']),
   mounted: () => {
-    const dialog = document.querySelector('dialog');
+    dialog = document.querySelector('dialog');
     if (!dialog.showModal) {
       window.dialogPolyfill.registerDialog(dialog);
     }
     dialog.querySelector('.close').addEventListener('click', () => {
       dialog.close();
     });
-    setTimeout(() => {
-      dialog.showModal();
-    }, 1000);
+  },
+  watch: {
+    ready(val) {
+      if (val === true) {
+        setTimeout(() => {
+          dialog.showModal();
+        }, 500);
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
   dialog {
+    z-index: 99;
     width: 70%;
     min-width: 320px;
     max-width: 640px;

@@ -9,7 +9,12 @@
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" v-for="option in pages" v-bind:href="option.href">
+          <a
+            class="mdl-navigation__link"
+            v-for="option in pages"
+            v-bind:href="option.href"
+            v-bind:key="option.href"
+          >
             {{ option.text }}
           </a>
         </nav>
@@ -18,7 +23,13 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">{{ title }}</span>
       <nav class="mdl-navigation">
-        <a v-on:click="closeDrawer" class="mdl-navigation__link" v-for="option in pages" v-bind:href="option.href">
+        <a
+          v-on:click="closeDrawer"
+          class="mdl-navigation__link"
+          v-for="option in pages"
+          v-bind:href="option.href"
+          v-bind:key="option.href"
+        >
           {{ option.text }}
         </a>
       </nav>
