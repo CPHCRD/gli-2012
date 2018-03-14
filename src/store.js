@@ -19,6 +19,7 @@ const state = {
   //   Sspline: ...,
   //   Zscore: ...
   // }
+  ready: false,
   valid: false,
   results: {
     FEV1: false,
@@ -45,6 +46,11 @@ const state = {
 // mutations must be synchronous and can be recorded by plugins
 // for debugging purposes.
 const mutations = {
+  ready(currentState) {
+    Object.assign(currentState, {
+      ready: true,
+    });
+  },
   update(currentState) {
     const patient = currentState.route.query;
     // calculate results
@@ -67,6 +73,7 @@ const mutations = {
 // actions are functions that cause side effects and can involve
 // asynchronous operations.
 const actions = {
+  ready: ({ commit }) => commit('ready'),
   update: ({ commit }) => commit('update'),
   // asyncUpdateInformation: ({ commit }, data) =>
   //   new Promise((resolve) => {

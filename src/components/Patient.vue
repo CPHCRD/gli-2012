@@ -24,7 +24,11 @@
         <label class="mdl-textfield__label" htmlFor="gender">Gender</label>
         <select v-model="gender" id="gender" class="mdl-selectfield__select">
           <option disabled value="">Select an option</option>
-          <option v-for="option in genders" v-bind:value="option.value">
+          <option
+            v-for="option in genders"
+            v-bind:value="option.value"
+            v-bind:key="option.value"
+          >
             {{ option.text }}
           </option>
         </select>
@@ -33,7 +37,11 @@
         <label class="mdl-textfield__label" htmlFor="ethnicity">Ethnicity</label>
         <select v-model="ethnicity" id="ethnicity" class="mdl-selectfield__select">
           <option disabled value="0">Select an option</option>
-          <option v-for="option in ethnicities" v-bind:value="option.value">
+          <option
+            v-for="option in ethnicities"
+            v-bind:value="option.value"
+            v-bind:key="option.value"
+          >
             {{ option.text }}
           </option>
         </select>

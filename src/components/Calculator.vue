@@ -20,6 +20,11 @@ export default {
     Patient,
     Results,
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.$store.dispatch('ready');
+    });
+  },
 };
 </script>
 
