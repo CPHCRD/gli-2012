@@ -24,8 +24,8 @@ export const calculateValues = (patient, measured, constants) => {
   // based on AGE_DECIMAL_INTERVAL (ex: 0.25) and DECIMAL_SIZE (ex: 2; 5.00);
   const upperAge = +(Math.ceil(age * (1 / AGE_DECIMAL_INTERVAL)) / (1 / AGE_DECIMAL_INTERVAL)).toFixed(DECIMAL_SIZE);
   const lowerAge = +(upperAge - AGE_DECIMAL_INTERVAL);
-  const upperTable = lookupTable[upperAge];
-  const lowerTable = lookupTable[lowerAge];
+  const upperTable = lookupTable[upperAge] ? lookupTable[upperAge] : lookupTable[lowerAge];
+  const lowerTable = lookupTable[lowerAge] ? lookupTable[lowerAge] : lookupTable[upperAge];
   // calculate Lspline, Mspline, Sspline variables
   // interpolation based on lookup tables
   const Lspline = calculateInterpolation(age, lowerAge, AGE_DECIMAL_INTERVAL, lowerTable.Lspline, upperTable.Lspline);
