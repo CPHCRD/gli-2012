@@ -1,5 +1,5 @@
 'use strict'
 module.exports = {
   NODE_ENV: '"production"',
-  TARGET: '"desktop"'
+  TARGET: '"mobile"'
 }
