@@ -34,7 +34,7 @@ export default {
       if (val === true) {
         setTimeout(() => {
           dialog.showModal();
-        }, 500);
+        }, 1000);
       }
     },
   },

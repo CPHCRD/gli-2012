@@ -1,7 +1,7 @@
 <template>
   <!-- Always shows a header, even in smaller screens. -->
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
-    <header class="mdl-layout__header">
+    <header class="mdl-layout__header" v-show="target === 'desktop'">
       <div class="mdl-layout__header-row">
         <!-- Title -->
         <span class="mdl-layout-title">{{ title }}</span>
@@ -20,7 +20,7 @@
         </nav>
       </div>
     </header>
-    <div class="mdl-layout__drawer">
+    <div class="mdl-layout__drawer" v-show="target === 'desktop'">
       <span class="mdl-layout-title">{{ title }}</span>
       <nav class="mdl-navigation">
         <a
@@ -39,7 +39,7 @@
         <router-view/>
       </div>
     </main>
-    <disclaimer />
+    <disclaimer v-show="target === 'desktop'" />
   </div>
 </template>
 
@@ -58,6 +58,7 @@ export default {
   },
   data: () => ({
     title: 'GLI-2012 calculator',
+    target: process.env.TARGET || 'desktop',
     pages: [{
       text: 'Calculator',
       href: '#/',
