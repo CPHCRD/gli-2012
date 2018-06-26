@@ -46,6 +46,8 @@
 <script>
 import Disclaimer from './components/Disclaimer';
 
+const target = process.env.TARGET || 'desktop';
+
 export default {
   name: 'app',
   components: {
@@ -58,7 +60,7 @@ export default {
   },
   data: () => ({
     title: 'GLI-2012 calculator',
-    target: process.env.TARGET || 'desktop',
+    target,
     pages: [{
       text: 'Calculator',
       href: '#/',
