@@ -39,7 +39,7 @@
         <router-view/>
       </div>
     </main>
-    <disclaimer v-show="target === 'desktop'" />
+    <disclaimer v-if="target === 'desktop'" />
   </div>
 </template>
 
