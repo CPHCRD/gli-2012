@@ -11,7 +11,7 @@ const state = {
   // results
   // {
   //   L: ...,
-  //   LNN: ...,
+  //   LLN: ...,
   //   Lspline: ...,
   //   M: ...,
   //   Mspline: ...,
