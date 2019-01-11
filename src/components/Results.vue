@@ -5,7 +5,7 @@
       <div class="loading-box">
         <save-to-pdf class="loading-box-pdf" />
         <i class="loading-box-refresh material-icons">refresh</i>
-        <i class="loading-box-success material-icons" v-on:click="refresh"><span class="normal">check_circle</span><span class="hover">refresh</span></i>
+        <i class="loading-box-success material-icons" v-on:click="refresh" v-on:click.native="refresh"><span class="normal">check_circle</span><span class="hover">refresh</span></i>
       </div>
     </div>
     <hr/>

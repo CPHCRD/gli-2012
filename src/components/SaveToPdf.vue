@@ -1,5 +1,5 @@
 <template>
-  <div title="Download results" v-on:click="download">
+  <div title="Download results" v-on:click="download" v-on:click.native="download">
     <i class="material-icons">picture_as_pdf</i>
   </div>
 </template>
