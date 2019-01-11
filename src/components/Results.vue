@@ -28,10 +28,10 @@
                 <td class="mdl-data-table__cell--non-numeric">S</td>
                 <td>{{ vars.S.toFixed(2) }}</td>
               </tr>
-              <tr v-bind:title="vars.LNN">
-                <td class="mdl-data-table__cell--non-numeric">LNN</td>
+              <tr v-bind:title="vars.LLN">
+                <td class="mdl-data-table__cell--non-numeric">LLN</td>
                 <td>
-                  <div>{{ vars.LNN.toFixed(2) }}</div>
+                  <div>{{ vars.LLN.toFixed(2) }}</div>
                 </td>
               </tr>
               <tr v-bind:title="vars.Zscore">

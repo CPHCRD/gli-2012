@@ -1,7 +1,7 @@
 import gli2012Data from 'gli-2012-data';
 
 const AGE_DECIMAL_INTERVAL = 0.25;
-const LNN_CONSTANT = 1.645;
+const LLN_CONSTANT = 1.645;
 const DECIMAL_SIZE = 2;
 
 export const calculateInterpolation = (age, age1, ageInterval, spline1, spline2) =>
@@ -57,7 +57,7 @@ export const calculateValues = (patient, measured, constants) => {
     (p5 * (ethnicity === 5 ? 1 : 0))
     + Sspline);
   // LLN (5th percentile) = exp(ln(1 - 1.645*L*S)/L +ln(M))
-  const LNN = Math.exp((Math.log(1 - (LNN_CONSTANT * L * S)) / L) + Math.log(M));
+  const LLN = Math.exp((Math.log(1 - (LLN_CONSTANT * L * S)) / L) + Math.log(M));
   // Z-score = ((measured/M)^L - 1)/(L·S)
   const Zscore = (((measured / M) ** L) - 1) / (L * S);
   // % predicted = (measured/M) ·100
@@ -69,7 +69,7 @@ export const calculateValues = (patient, measured, constants) => {
     Mspline,
     S,
     Sspline,
-    LNN,
+    LLN,
     Zscore,
     percPredicted,
   };

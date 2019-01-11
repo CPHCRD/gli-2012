@@ -98,8 +98,8 @@ export default {
           doc.text(leftMargin, forthBlockYOffset, 'Predicted');
           doc.text(leftMargin + valuesXOffset, forthBlockYOffset, `${result.M.toFixed(2)}`);
           forthBlockYOffset += 5;
-          doc.text(leftMargin, forthBlockYOffset, 'LNN');
-          doc.text(leftMargin + valuesXOffset, forthBlockYOffset, `${result.LNN.toFixed(2)}`);
+          doc.text(leftMargin, forthBlockYOffset, 'LLN');
+          doc.text(leftMargin + valuesXOffset, forthBlockYOffset, `${result.LLN.toFixed(2)}`);
           forthBlockYOffset += 5;
           doc.text(leftMargin, forthBlockYOffset, 'Z score');
           doc.text(leftMargin + valuesXOffset, forthBlockYOffset, `${result.Zscore.toFixed(2)}`);
